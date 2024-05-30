@@ -12,8 +12,8 @@ namespace FlashcardQuiz.Models
 
         [Column("title")]
         [Required]
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
-        public ICollection<Card> Cards { get; set; }
+        public ICollection<Card>? Cards { get; set; }
     }
 }

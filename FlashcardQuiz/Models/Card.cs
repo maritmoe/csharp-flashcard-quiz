@@ -12,15 +12,15 @@ namespace FlashcardQuiz.Models
 
         [Column("question")]
         [Required]
-        public string Question { get; set; }
+        public required string Question { get; set; }
 
         [Column("answer")]
         [Required]
-        public string Answer { get; set; }
+        public required string Answer { get; set; }
 
         [Column("quiz_id")]
         [Required]
         public int QuizId { get; set; }
-        public Quiz Quiz { get; set; }
+        public required Quiz Quiz { get; set; }
     }
 }
