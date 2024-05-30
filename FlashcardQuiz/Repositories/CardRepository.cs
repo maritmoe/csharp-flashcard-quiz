@@ -13,14 +13,9 @@ namespace FlashcardQuiz.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Card>> GetCardsFromQuiz(int quizId)
-        {
-            return await _context.Cards.Where(c => c.QuizId == quizId).ToListAsync();
-        }
-
         public async Task<Card?> GetCard(int cardId)
         {
-            return await _context.Cards.FirstOrDefaultAsync(c => c.Id == cardId);
+            return await _context.Cards.Include(c => c.Quiz).FirstOrDefaultAsync(c => c.Id == cardId);
         }
 
         public async Task<Card?> CreateCard(string question, string answer, Quiz quiz)
