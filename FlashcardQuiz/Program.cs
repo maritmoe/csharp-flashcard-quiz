@@ -1,5 +1,6 @@
 using FlashcardQuiz.Database;
 using FlashcardQuiz.Repositories;
+using FlashcardQuiz.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.ConfigureQuizApiEndpoint();
+app.ConfigureCardApiEndpoint();
 
 app.UseCors(MyAllowSpecificOrigins);
 
